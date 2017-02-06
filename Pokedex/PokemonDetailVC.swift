@@ -31,6 +31,20 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         nameLbl.text = pokemon.name
+        pokemon.loadPokemonDetails {
+            
+            
+            print("did arrive here")
+            // whatever we write will only be called after the network call is complete!
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        attackLbl.text = pokemon.attack
+        heightLbl.text = pokemon.height
+        weightLbl.text = pokemon.weight
+        defenceLbl.text = pokemon.defence
     }
 
     @IBAction func backButtonPressed(_ sender: UIButton) {
