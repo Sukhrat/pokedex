@@ -31,6 +31,12 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         nameLbl.text = pokemon.name
+        
+        let img = UIImage(named: "\(pokemon.pokedexID)")
+        mainImg.image = img
+        currentEvoImg.image = img
+        idLbl.text = "\(pokemon.pokedexID)"
+        
         pokemon.loadPokemonDetails {
             
             
@@ -45,6 +51,7 @@ class PokemonDetailVC: UIViewController {
         heightLbl.text = pokemon.height
         weightLbl.text = pokemon.weight
         defenceLbl.text = pokemon.defence
+        typeLbl.text = pokemon.type
     }
 
     @IBAction func backButtonPressed(_ sender: UIButton) {
